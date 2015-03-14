@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>CAREER GUIDANCE IN COMPUTER SCIENCE</title>
+        <meta charset="utf-8">
+        <script src="d3/d3.js"></script>
+        <script type="text/javascript" src="jquery.min.js"></script>
+          <style>
+        
+        
+        
+        @charset"utf-8";
+
+
+ .link10 {
+    stroke: #cec;
+    stroke-width: 2px;
+    stroke-dasharray: 3, 3;
+}
+.link1 {
+    stroke: #cec;
+    stroke-width: 2px;
+}
+.nodetext {
+    pointer-events: none;
+}
+.node.type1 {
+    fill:#C0C0C0;
+}
+.node.type2 {
+    fill:#BF0426;
+}
+.node.type3 {
+    fill:#E5B96F;
+}
+.node.type4 {
+    fill:#1BC9E0;
+    stroke:#1695A3;
+    stroke-width: 3px;
+}
+.node.type5 {
+    fill:#1BC9E0;
+}
+.node.type6 {
+    fill:#E01B98;
+}
+image.circle {
+    cursor:pointer;
+}
+.fadein {
+    display:none;
+    font-size:20px;
+}
+.rectD {
+    background-color:#000000;
+    width:70px;
+    height:30px
+}
+.rectL {
+    background-color:#000000;
+    width:90px;
+    height:30px
+}
+        </style>
+        
+    
+    
+    </head>
+    <body>
+        
+        <script>
+        
+        var data = {
+    "nodes": [{
+        "name": "Programming",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 250,"y": 250
+    }, {
+        "name": "c",
+        "type": 3,
+        "slug": "www.wibit.net",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "c++",
+        "type": 3,
+        "slug": "www.cplusplus.com/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "java",
+        "type": 3,
+        "slug": "www.javabeginner.com/",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "php",
+        "type": 3,
+        "slug": "www.tuxradar.com/practicalphp",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Software Engineer $ 60k-80k ",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "AI Programmer $ 65-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Computer Sys Analyst $ 70-90k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Base Programmer $ 40-55k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "database design",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 250,"y": 500
+    }, {
+        "name": "dbms",
+        "type": 3,
+        "slug": "www.atlasindia.com/sql.htm",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "data warehousing",
+        "type": 3,
+        "slug": "www.tutorialspoint.com/dwh/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "mining",
+        "type": 3,
+        "slug": "en.wikipedia.org/wiki/Data_mining",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Sql",
+        "type": 3,
+        "slug": "www.beginner-sql-tutorial.com/sql.htm",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Administrator $ 60k-75k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "SQL Database Administrator $ 50k-70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Architect $ 60k-80k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Database Analyst $ 50-75k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video game design",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 750,"y": 250
+    }, {
+        "name": "computer animation",
+        "type": 3,
+        "slug": "www.thevirtualinstructor.com/blog/learn-3d-computer-animation-for-free",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "computer graphics",
+        "type": 3,
+        "slug": "www.scratchapixel.com/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "Maya",
+        "type": 3,
+        "slug": "www.autodesk.com/products/autodesk-maya/overview",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "3d max",
+        "type": 3,
+        "slug": "www.autodesk.com/education/free-software/3ds-max",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Junior Serious Game Level Designer $40-50k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Staff Serious Game Level Designer $ 60-70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video Game Tester $ 40-50k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video Game quality controller $ 45-60k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Network Management",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 750,"y": 750
+    }, {
+        "name": "Network topology",
+        "type": 3,
+        "slug": "computer.howstuffworks.com/lan-switch2.htm",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "Communications protocols 29",
+        "type": 3,
+        "slug": "www.dummies.com/how-to/content/the-tcpip-networking-protocol-suite.html",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "Routing",
+        "type": 3,
+        "slug": "www3.sangoma.com/support/tutorials/tcp_ip/basic_ip_routing.html",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Security",
+        "type": 3,
+        "slug": "en.wikipedia.org/wiki/Network_security",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Network Engineer $ 60-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Senior Network Engineer $ 60-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "IT Network Engineer $ 50 - 70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "VOIP Network Consultant  $ 50 - 70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Programming",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 250,"y": 250
+    }, {
+        "name": "c",
+        "type": 3,
+        "slug": "www.wibit.net",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "c++",
+        "type": 3,
+        "slug": "www.cplusplus.com/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "java",
+        "type": 3,
+        "slug": "www.javabeginner.com/",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "php",
+        "type": 3,
+        "slug": "www.tuxradar.com/practicalphp",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Software Engineer $ 60k-80k ",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "AI Programmer $ 65-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Computer Sys Analyst $ 70-90k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Base Programmer $ 40-55k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "database design",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 250,"y": 500
+    }, {
+        "name": "dbms",
+        "type": 3,
+        "slug": "www.atlasindia.com/sql.htm",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "data warehousing",
+        "type": 3,
+        "slug": "www.tutorialspoint.com/dwh/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "mining",
+        "type": 3,
+        "slug": "en.wikipedia.org/wiki/Data_mining",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Sql",
+        "type": 3,
+        "slug": "www.beginner-sql-tutorial.com/sql.htm",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Administrator $ 60k-75k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "SQL Database Administrator $ 50k-70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Architect $ 60k-80k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Database Analyst $ 50-75k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video game design",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 750,"y": 250
+    }, {
+        "name": "computer animation",
+        "type": 3,
+        "slug": "www.thevirtualinstructor.com/blog/learn-3d-computer-animation-for-free",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "computer graphics",
+        "type": 3,
+        "slug": "www.scratchapixel.com/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "Maya",
+        "type": 3,
+        "slug": "www.autodesk.com/products/autodesk-maya/overview",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "3d max",
+        "type": 3,
+        "slug": "www.autodesk.com/education/free-software/3ds-max",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Junior Serious Game Level Designer $40-50k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Staff Serious Game Level Designer $ 60-70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video Game Tester $ 40-50k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video Game quality controller $ 45-60k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Network Management",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 750,"y": 750
+    }, {
+        "name": "Network topology",
+        "type": 3,
+        "slug": "computer.howstuffworks.com/lan-switch2.htm",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "Communications protocols 29",
+        "type": 3,
+        "slug": "www.dummies.com/how-to/content/the-tcpip-networking-protocol-suite.html",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "Routing",
+        "type": 3,
+        "slug": "www3.sangoma.com/support/tutorials/tcp_ip/basic_ip_routing.html",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Security",
+        "type": 3,
+        "slug": "en.wikipedia.org/wiki/Network_security",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Network Engineer $ 60-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Senior Network Engineer $ 60-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "IT Network Engineer $ 50 - 70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "VOIP Network Consultant  $ 50 - 70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Programming",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 250,"y": 250
+    }, {
+        "name": "c",
+        "type": 3,
+        "slug": "www.wibit.net",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "c++",
+        "type": 3,
+        "slug": "www.cplusplus.com/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "java",
+        "type": 3,
+        "slug": "www.javabeginner.com/",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "php",
+        "type": 3,
+        "slug": "www.tuxradar.com/practicalphp",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Software Engineer $ 60k-80k ",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "AI Programmer $ 65-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Computer Sys Analyst $ 70-90k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Base Programmer $ 40-55k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "database design",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 250,"y": 500
+    }, {
+        "name": "dbms",
+        "type": 3,
+        "slug": "www.atlasindia.com/sql.htm",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "data warehousing",
+        "type": 3,
+        "slug": "www.tutorialspoint.com/dwh/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "mining",
+        "type": 3,
+        "slug": "en.wikipedia.org/wiki/Data_mining",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Sql",
+        "type": 3,
+        "slug": "www.beginner-sql-tutorial.com/sql.htm",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Administrator $ 60k-75k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "SQL Database Administrator $ 50k-70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Architect $ 60k-80k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Database Analyst $ 50-75k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video game design",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 750,"y": 250
+    }, {
+        "name": "computer animation",
+        "type": 3,
+        "slug": "www.thevirtualinstructor.com/blog/learn-3d-computer-animation-for-free",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "computer graphics",
+        "type": 3,
+        "slug": "www.scratchapixel.com/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "Maya",
+        "type": 3,
+        "slug": "www.autodesk.com/products/autodesk-maya/overview",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "3d max",
+        "type": 3,
+        "slug": "www.autodesk.com/education/free-software/3ds-max",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Junior Serious Game Level Designer $40-50k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Staff Serious Game Level Designer $ 60-70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video Game Tester $ 40-50k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video Game quality controller $ 45-60k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Network Management",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 750,"y": 750
+    }, {
+        "name": "Network topology",
+        "type": 3,
+        "slug": "computer.howstuffworks.com/lan-switch2.htm",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "Communications protocols 29",
+        "type": 3,
+        "slug": "www.dummies.com/how-to/content/the-tcpip-networking-protocol-suite.html",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "Routing",
+        "type": 3,
+        "slug": "www3.sangoma.com/support/tutorials/tcp_ip/basic_ip_routing.html",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Security",
+        "type": 3,
+        "slug": "en.wikipedia.org/wiki/Network_security",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Network Engineer $ 60-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Senior Network Engineer $ 60-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "IT Network Engineer $ 50 - 70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "VOIP Network Consultant  $ 50 - 70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Programming",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 250,"y": 250
+    }, {
+        "name": "c",
+        "type": 3,
+        "slug": "www.wibit.net",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "c++",
+        "type": 3,
+        "slug": "www.cplusplus.com/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "java",
+        "type": 3,
+        "slug": "www.javabeginner.com/",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "php",
+        "type": 3,
+        "slug": "www.tuxradar.com/practicalphp",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Software Engineer $ 60k-80k ",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "AI Programmer $ 65-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Computer Sys Analyst $ 70-90k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Base Programmer $ 40-55k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "database design",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 250,"y": 500
+    }, {
+        "name": "dbms",
+        "type": 3,
+        "slug": "www.atlasindia.com/sql.htm",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "data warehousing",
+        "type": 3,
+        "slug": "www.tutorialspoint.com/dwh/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "mining",
+        "type": 3,
+        "slug": "en.wikipedia.org/wiki/Data_mining",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Sql",
+        "type": 3,
+        "slug": "www.beginner-sql-tutorial.com/sql.htm",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Administrator $ 60k-75k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "SQL Database Administrator $ 50k-70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Data Architect $ 60k-80k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Database Analyst $ 50-75k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video game design",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 750,"y": 250
+    }, {
+        "name": "computer animation",
+        "type": 3,
+        "slug": "www.thevirtualinstructor.com/blog/learn-3d-computer-animation-for-free",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "computer graphics",
+        "type": 3,
+        "slug": "www.scratchapixel.com/",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "Maya",
+        "type": 3,
+        "slug": "www.autodesk.com/products/autodesk-maya/overview",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "3d max",
+        "type": 3,
+        "slug": "www.autodesk.com/education/free-software/3ds-max",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Junior Serious Game Level Designer $40-50k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Staff Serious Game Level Designer $ 60-70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video Game Tester $ 40-50k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Video Game quality controller $ 45-60k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Network Management",
+        "type": 1,
+        "slug": "",
+        "entity": "major"//, "fixed": 1,    "x": 750,"y": 750
+    }, {
+        "name": "Network topology",
+        "type": 3,
+        "slug": "computer.howstuffworks.com/lan-switch2.htm",
+        "entity": "major"//, "fixed": 0, "x": 450,"y": 150
+    }, {
+        "name": "Communications protocols 29",
+        "type": 3,
+        "slug": "www.dummies.com/how-to/content/the-tcpip-networking-protocol-suite.html",
+        "entity": "major"//, "fixed": 0,"x": 450,"y": 350
+    }, {
+        "name": "Routing",
+        "type": 3,
+        "slug": "www3.sangoma.com/support/tutorials/tcp_ip/basic_ip_routing.html",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Security",
+        "type": 3,
+        "slug": "en.wikipedia.org/wiki/Network_security",
+        "entity": "major"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Network Engineer $ 60-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "Senior Network Engineer $ 60-85k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "IT Network Engineer $ 50 - 70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    },{
+        "name": "VOIP Network Consultant  $ 50 - 70k",
+        "type": 4,
+        "slug": "",
+        "entity": "jobtitle"//,"fixed": 0,"x": 450,"y": 450
+    }],
+    "links": [{
+        "source": 0,
+        "target": 1,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 0,
+        "target": 2,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 0,
+        "target": 3,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 0,
+        "target": 4,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 0,
+        "target": 5,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 0,
+        "target": 6,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 0,
+        "target": 7,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 0,
+        "target": 8,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 9,
+        "target": 10,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 9,
+        "target": 11,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 9,
+        "target": 12,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 9,
+        "target": 13,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 9,
+        "target": 14,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 9,
+        "target": 15,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 9,
+        "target": 16,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 9,
+        "target": 17,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 18,
+        "target": 19,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 18,
+        "target": 20,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 18,
+        "target": 21,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 18,
+        "target": 22,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 18,
+        "target": 23,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 18,
+        "target": 24,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 18,
+        "target": 25,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 18,
+        "target": 26,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 27,
+        "target": 28,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 27,
+        "target": 29,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 27,
+        "target": 30,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 27,
+        "target": 31,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 27,
+        "target": 32,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 27,
+        "target": 33,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 27,
+        "target": 34,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 27,
+        "target": 35,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 0, //
+        "target": 9,
+        "value": 1,
+        "distance": 25
+    },
+              {
+        "source": 9, //
+        "target": 18,
+        "value": 1,
+        "distance": 25
+    }, {
+        "source": 18,//
+        "target": 27,
+        "value": 1,
+        "distance": 25
+    },{
+        "source": 36,
+        "target": 37,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 36,
+        "target": 38,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 36,
+        "target": 39,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 36,
+        "target": 40,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 36,
+        "target": 41,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 36,
+        "target": 42,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 36,
+        "target": 43,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 36,
+        "target": 44,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 45,
+        "target": 46,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 45,
+        "target": 47,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 45,
+        "target": 48,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 45,
+        "target": 49,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 45,
+        "target": 50,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 45,
+        "target": 51,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 45,
+        "target": 52,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 45,
+        "target": 53,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 54,
+        "target": 55,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 54,
+        "target": 56,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 54,
+        "target": 57,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 54,
+        "target": 58,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 54,
+        "target": 59,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 54,
+        "target": 60,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 54,
+        "target": 61,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 54,
+        "target": 62,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 63,
+        "target": 64,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 63,
+        "target": 65,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 63,
+        "target": 66,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 63,
+        "target": 67,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 63,
+        "target": 68,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 63,
+        "target": 69,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 63,
+        "target": 70,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 63,
+        "target": 71,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 27,//
+        "target": 36,
+        "value": 1,
+        "distance": 25
+    },
+              {
+        "source": 36,//
+        "target": 45,
+        "value": 1,
+        "distance": 25
+    }, {
+        "source": 45,//
+        "target": 54,
+        "value": 1,
+        "distance": 25
+    },{
+        "source": 54,//
+        "target": 63,
+        "value": 1,
+        "distance": 25
+    },{
+        "source": 72,
+        "target": 73,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 72,
+        "target": 74,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 72,
+        "target": 75,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 72,
+        "target": 76,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 72,
+        "target": 77,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 72,
+        "target": 78,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 72,
+        "target": 79,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 72,
+        "target": 80,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 81,
+        "target": 82,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 81,
+        "target": 83,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 81,
+        "target": 84,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 81,
+        "target": 85,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 81,
+        "target": 86,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 81,
+        "target": 87,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 81,
+        "target": 88,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 81,
+        "target": 89,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 90,
+        "target": 91,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 90,
+        "target": 92,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 90,
+        "target": 93,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 90,
+        "target": 94,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 90,
+        "target": 95,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 90,
+        "target": 96,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 90,
+        "target": 97,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 90,
+        "target": 98,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 99,
+        "target": 100,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 99,
+        "target": 101,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 99,
+        "target": 102,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 99,
+        "target": 103,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 99,
+        "target": 104,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 99,
+        "target": 105,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 99,
+        "target": 106,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 99,
+        "target": 107,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 63,//
+        "target": 72,
+        "value": 1,
+        "distance": 25
+    },
+              {
+        "source": 72,//
+        "target": 81,
+        "value": 1,
+        "distance": 25
+    }, {
+        "source": 81,//
+        "target": 90,
+        "value": 1,
+        "distance": 25
+    },{
+        "source": 90,//
+        "target": 99,
+        "value": 1,
+        "distance": 25
+    },{
+        "source": 108,
+        "target": 109,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 108,
+        "target": 110,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 108,
+        "target": 111,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 108,
+        "target": 112,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 108,
+        "target": 113,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 108,
+        "target": 114,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 108,
+        "target": 115,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 108,
+        "target": 116,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 117,
+        "target": 118,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 117,
+        "target": 119,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 117,
+        "target": 120,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 117,
+        "target": 121,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 117,
+        "target": 122,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 117,
+        "target": 123,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 117,
+        "target": 124,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 117,
+        "target": 125,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 126,
+        "target": 127,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 126,
+        "target": 128,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 126,
+        "target": 129,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 126,
+        "target": 130,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 126,
+        "target": 131,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 126,
+        "target": 132,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 126,
+        "target": 133,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 126,
+        "target": 134,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 135,
+        "target": 136,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 135,
+        "target": 137,
+        "value": 1,
+        "distance": 5
+    }, {
+        "source": 135,
+        "target": 138,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 135,
+        "target": 139,
+        "value": 1,
+        "distance": 5
+    },{
+        "source": 135,
+        "target": 140,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 135,
+        "target": 141,
+        "value": 1,
+        "distance": 15
+    }, {
+        "source": 135,
+        "target": 142,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 135,
+        "target": 143,
+        "value": 1,
+        "distance": 15
+    },{
+        "source": 99,//
+        "target": 108,
+        "value": 1,
+        "distance": 25
+    },
+              {
+        "source": 108,//
+        "target": 117,
+        "value": 1,
+        "distance": 25
+    }, {
+        "source": 117,//
+        "target": 126,
+        "value": 1,
+        "distance": 25
+    },{
+        "source": 126,//
+        "target": 135,
+        "value": 1,
+        "distance": 25
+    }
+    ]
+}
+
+
+
+var w = 1500,
+    h = 700,
+    radius = d3.scale.log().domain([0, 312000]).range(["10", "50"]);
+
+var vis = d3.select("body")
+  .append("svg:svg")
+    .attr("width", w)
+    .attr("height", h)
+    .attr("pointer-events", "all")
+  .append('svg:g')
+    .call(d3.behavior.zoom().on("zoom", redraw))
+  .append('svg:g');
+
+vis.append('svg:rect')
+    .attr('width', w)
+    .attr('height', h)
+    .attr('fill', 'white');
+
+function redraw() {
+  console.log("here", d3.event.translate, d3.event.scale);
+  vis.attr("transform",
+      "translate(" + d3.event.translate + ")"
+      + " scale(" + d3.event.scale + ")");
+}
+
+
+var force = d3.layout.force()
+    .nodes(data.nodes)
+    .links(data.links)
+    .linkDistance(function (d) {
+    return (d.distance * 100);
+})
+
+.charge(-2500)
+.gravity(0.1)
+    .size([w, h])
+    .start();
+
+
+
+var link = vis.selectAll("line.link")
+    .data(data.links)
+    .enter().append("svg:line")
+    .attr("class", function (d) {
+    return "link" + d.value + "";
+})
+    .attr("x1", function (d) {
+    return d.source.x;
+})
+    .attr("y1", function (d) {
+    return d.source.y;
+})
+    .attr("x2", function (d) {
+    return d.target.x;
+})
+    .attr("y2", function (d) {
+    return d.target.y;
+});
+  
+function openLink() {
+    return function (d) {
+        var url = "";
+        if (d.slug != "") {
+            url = d.slug
+        } 
+        window.open("//" + url)
+    }
+}
+
+
+
+
+var node = vis.selectAll("g.node")
+    .data(data.nodes)
+    .enter().append("svg:g")
+    .attr("class", "node")
+    .call(force.drag);
+
+
+node.append("circle")
+    .attr("class", function (d) {
+    return "node type" + d.type
+})
+    .attr("r", function (d) {
+    if (d.entity == "company") {
+        return 40
+    } else {
+        return 40
+    }
+})
+
+
+
+node.append("svg:image")
+    .attr("class", function (d) {
+    return "circle img_" + d.name
+})
+   
+    .attr("x", "-36px")
+    .attr("y", "-36px")
+    .attr("width", "70px")
+    .attr("height", "70px")
+    .on("click", openLink())
+    .on("mouseover", function (d) {
+    if (d.entity == "major") {
+        d3.select(this).attr("width", "90px")
+            .attr("x", "-46px")
+            .attr("y", "-36.5px")
+        .attr("xlink:href", function (d) {
+            return d.img_hrefL
+        });
+         
+    }
+        
+        
+        
+})
+    .on("mouseout", function (d) {
+    if (d.entity == "major") {
+        d3.select(this).attr("width", "70px")
+            .attr("x", "-36px")
+            .attr("y", "-36px")
+         .attr("xlink:href", function (d) {
+            return d.img_hrefD
+        });
+        
+    }
+});
+
+
+node.append("text")
+    .attr("class", function (d) {
+    return "nodetext title_" + d.name
+})
+    .attr("dx", 0)
+    .attr("dy", ".35em")
+    .style("font-size", "10px")
+    .attr("text-anchor", "middle")
+    .style("fill", "BLACK")
+    .text(function (d) {
+    if (d.entity != "description") {
+        return d.name
+    }
+});
+
+
+
+node.on("mouseover", function (d) {
+    link.style('stroke-width', function (l) {
+        if (d === l.source || d === l.target) return 25;
+        else return 2;
+    });
+    
+        
+        
+    if (d.entity == "major") {
+        d3.select(this).select('text')
+            .transition()
+            .duration(300)
+            .text(function (d) {
+            return d.name;
+        })
+            .style("font-size", "250px")
+
+    } else if (d.entity == "jobtitle") {
+        var asdf = d3.select(this);
+        asdf.select('text').remove();
+
+        asdf.append("text")
+            .text(function (d) {
+            return d.name
+        })
+            .attr("class", "nodetext")
+            .attr("dx", 0)
+            .attr("dy", ".35em")
+            .style("font-size", "5px")
+            .attr("text-anchor", "middle")
+            .style("fill", "BLACK")
+            .transition()
+            .duration(300)
+            .style("font-size", "250px");
+
+        asdf.append("text").text(function (d) {
+            return d.snd_name
+        })
+            .attr("class", "nodetext")
+            .attr("transform", "translate(0, 12)")
+            .attr("dx", 0)
+            .attr("dy", ".35em")
+            .style("font-size", "5px")
+            .attr("text-anchor", "middle")
+            .style("fill", "white")
+            .transition()
+            .duration(300)
+            .style("font-size", "250px");
+    } else {
+        d3.select(this).select('text')
+            .transition()
+            .duration(300)
+            .style("font-size", "15px")
+    }
+
+    if (d.entity == "major") {
+
+        d3.select(this).select('circle')
+            .transition()
+            .duration(300)
+            .attr("r", 60)
+
+    } else if (d.entity == "jobtitle") {
+        d3.select(this).select('circle')
+            .transition()
+            .duration(300)
+            .attr("r", 60)
+    }
+})
+
+
+node.on("mouseout", function (d) {
+    link.style('stroke-width', 2);
+    if (d.entity == "jobtitle"|| d.entity == "major") {
+        
+        d3.select(this).selectAll('text').remove();
+
+       
+        d3.select(this).append('text')
+            .text(function (d) {
+            return d.name;
+        })
+            .style("font-size", "14px")
+            .attr("dx", 2)
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle")
+            .style("fill", "BLACK")
+            .attr("class", "nodetext")
+            .transition()
+            .duration(300)
+            .style("font-size", "10px")
+
+    } else {
+        d3.select(this).select('text')
+            .transition()
+            .duration(300)
+            .style("font-size", "10px")
+    }
+
+
+    if (d.entity == "major" || d.entity == "jobtitle") {
+
+        d3.select(this).select('circle')
+            .transition()
+            .duration(300)
+            .attr("r", 40)
+    }
+
+});
+
+force.on("tick", function () {
+    link.attr("x1", function (d) {
+        return d.source.x;
+    })
+        .attr("y1", function (d) {
+        return d.source.y;
+    })
+        .attr("x2", function (d) {
+        return d.target.x;
+    })
+        .attr("y2", function (d) {
+        return d.target.y;
+    });
+
+    node.attr("transform", function (d) {
+        return "translate(" + d.x + "," + d.y + ")";
+    });
+});
+  
+        
+        </script>
+        
+        <div id="chart"></div>
+        
+       <b> <p>CAREER GUIDANCE IN COMPUTER SCIENCE</p></b>
+       <b> <p><font size="3" color="#C0C0C0"> Nodes related to Branches of Computer Science</font></p></b>
+
+<b><p><font size="3" color="#E5B96F"> Nodes related to particular aspects of the particular branches</font></p></b>
+
+<b><p><font size="3" color="#1BC9E0">Nodes Related to job Titles</font></p></b>
+        
+      <b>  <p><font size="3" color="#cec">Links Connecting the nodes</font></p></b>
+ 
+        
+    
+    
+    </body>
+    
+</html>
